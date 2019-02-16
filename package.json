@@ -18,5 +18,8 @@
   "homepage": "https://github.com/mahmudul-hasan-sreejon/Forkify#readme",
   "devDependencies": {
     "webpack": "^4.29.4"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }
