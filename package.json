@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mahmudul-hasan-sreejon/Forkify/issues"
   },
-  "homepage": "https://github.com/mahmudul-hasan-sreejon/Forkify#readme"
+  "homepage": "https://github.com/mahmudul-hasan-sreejon/Forkify#readme",
+  "devDependencies": {
+    "webpack": "^4.29.4"
+  }
 }
