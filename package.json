@@ -1,0 +1,19 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "web app based on food2fork api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmudul-hasan-sreejon/Forkify.git"
+  },
+  "author": "Mahmudul Hasan Sreejon",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mahmudul-hasan-sreejon/Forkify/issues"
+  },
+  "homepage": "https://github.com/mahmudul-hasan-sreejon/Forkify#readme"
+}
