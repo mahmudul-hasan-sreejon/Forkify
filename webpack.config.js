@@ -14,10 +14,22 @@ module.exports = {
         contentBase: './dist'
     },
 
-    plugin: [
+    plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html'
         })
     ],
+
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_module/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
 };
