@@ -14,7 +14,7 @@ export const clearResults = () => {
     elements.searchResList.innerHTML = '';
 };
 
-// Limit Recipe Title view chars to 17 chars
+// Limit Recipe Title chars to 17 chars
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if(title.length > limit) {
