@@ -6,6 +6,7 @@ export default class Search {
         this.query = query;
     }
 
+    // Fetch data using the food2fork API
     async getResults() {
         const key = '274b65f392b95ce28cf43e8972cb61b3';
 
