@@ -7,10 +7,14 @@ export const elements = {
     searchResList: document.querySelector('.results__list')
 };
 
+export const elementStrings = {
+    loader: 'loader'
+};
+
 // Render a loader on the UI
 export const renderLoaded = parent => {
     const loader = `
-        <div class="loader">
+        <div class="${elementStrings.loader}">
             <svg>
                 <use href="img/icons.svg#icon-cw"></use>
             </svg>
@@ -19,4 +23,12 @@ export const renderLoaded = parent => {
 
     // Add a loader after a search
     parent.insertAdjacentHTML('afterbegin', loader);
+};
+
+// Clear loader from the UI
+export const clearLoader = () => {
+    const loader = document.querySelector(`.${elementStrings.loader}`);
+
+    // If loader exists the remove loader from the parent element
+    if(loader) loader.parentElement.removeChild(loader);
 };
