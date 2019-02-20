@@ -38,9 +38,26 @@ const controlSearch = async () => {
     }
 };
 
-// Event Listener for the search form
+// Event Listener for search form
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
 
     controlSearch();
+});
+
+// Event Listener for pagination button(s)
+elements.searchResPages.addEventListener('click', e => {
+    // Select the clicked button
+    const btn = e.target.closest('.btn-inline');
+
+    if(btn) {
+        // Clear result(s)
+        searchView.clearResults();
+
+        // Get the page no.
+        const goToPage = parseInt(btn.dataset.goto, 10);
+
+        // Render results of that page no.
+        searchView.renderResults(state.search.result, goToPage);
+    }
 });
