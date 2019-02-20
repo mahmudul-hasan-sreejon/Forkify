@@ -22,4 +22,17 @@ export default class Recipe {
             console.log(err);
         }
     }
+
+    // Calculate time for each recipe to prepare
+    calcTime() {
+        // Assuming that we need 15 min for each 3 ingredients
+        const numIng = this.ingredients.length;
+        const periods = Math.ceil(numIng / 3);
+        this.time = periods * 15;
+    }
+
+    // Calculate serving time
+    calcServings() {
+        this.servings = 4;
+    }
 }
