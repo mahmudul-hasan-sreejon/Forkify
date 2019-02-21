@@ -83,15 +83,19 @@ const controlRecipe = async () => {
         state.recipe = new Recipe(id);
 
         try {
-            // Get recipe data
+            // Get recipe data and parse ingredients
             await state.recipe.getRecipe();
+            
+            console.log({ "ingredients": state.recipe.ingredients });
+            
+            state.recipe.parseIngredients();
 
             // Calculate servings and time
             state.recipe.calcTime();
             state.recipe.calcServings();
 
             // Render recipe
-            console.log(state.recipe);
+            // console.log(state.recipe);
         }
         catch(err) {
             alert('Error processing recipe!');
@@ -101,5 +105,6 @@ const controlRecipe = async () => {
 
 // Track the recipe id on hash change
 window.addEventListener('hashchange', controlRecipe);
+
 // Track the recipe id on load
 window.addEventListener('load', controlRecipe);
