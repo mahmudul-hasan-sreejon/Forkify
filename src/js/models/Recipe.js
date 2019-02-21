@@ -20,6 +20,7 @@ export default class Recipe {
         }
         catch(err) {
             console.log(err);
+            alert('Something went wrong... :(');
         }
     }
 
