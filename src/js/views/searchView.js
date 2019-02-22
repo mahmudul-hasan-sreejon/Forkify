@@ -30,8 +30,8 @@ export const highlightSelected = id => {
     document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
 };
 
-// Limit Recipe Title chars to 17 chars
-const limitRecipeTitle = (title, limit = 17) => {
+// Limit recipe title to 18 characters
+const limitRecipeTitle = (title, limit = 18) => {
     const newTitle = [];
     if(title.length > limit) {
         title.split(' ').reduce((acc, cur) => {
@@ -40,7 +40,7 @@ const limitRecipeTitle = (title, limit = 17) => {
             return (acc + cur.length);
         }, 0);
 
-        return (`${newTitle.join(' ')} ...`);
+        return (`${newTitle.join(' ')}...`);
     }
     return title;
 };
