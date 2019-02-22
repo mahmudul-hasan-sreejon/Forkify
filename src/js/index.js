@@ -114,3 +114,18 @@ window.addEventListener('hashchange', controlRecipe);
 
 // Track the recipe id on load
 window.addEventListener('load', controlRecipe);
+
+// Handling recipe button clicks
+elements.recipe.addEventListener('click', e => {
+    // Check which button was clicked
+    if(e.target.matches('.btn-decrease, .btn-decrease *')) {
+        if(state.recipe.servings > 1) {
+            state.recipe.updateServings('dec');
+            recipeView.updateServingsIngredients(state.recipe);
+        }
+    }
+    else if(e.target.matches('.btn-increase, .btn-increase *')) {
+        state.recipe.updateServings('inc');
+        recipeView.updateServingsIngredients(state.recipe);
+    }
+});
