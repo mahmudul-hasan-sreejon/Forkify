@@ -15,6 +15,21 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 };
 
+// Clear all highlighted recipe selector
+const clearAllHighlightedSelector = () => {
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    });
+};
+
+// Highlight selected recipe
+export const highlightSelected = id => {
+    clearAllHighlightedSelector();
+
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+};
+
 // Limit Recipe Title chars to 17 chars
 const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
