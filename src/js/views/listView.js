@@ -30,6 +30,6 @@ export const deleteItem = id => {
     // Find the item of given `id`
     const item = document.querySelector(`[data-itemid="${id}"]`);
 
-    // Remove the item
-    item.parentElement.removeChild(item);
+    // Remove the item if there is one
+    if(item) item.parentElement.removeChild(item);
 };

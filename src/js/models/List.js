@@ -18,6 +18,7 @@ export default class List {
 
         // Add the new item
         this.items.push(item);
+        return item;
     }
 
     // Delete an item

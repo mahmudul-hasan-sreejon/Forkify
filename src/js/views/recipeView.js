@@ -2,6 +2,7 @@
 import { elements } from './base';
 import { Fraction } from 'fractional';
 
+
 // Clear recipe
 export const clearRecipe = () => {
     elements.recipe.innerHTML = '';
@@ -10,7 +11,6 @@ export const clearRecipe = () => {
 // Format ingredient count
 const formatCount = count => {
     if(count) {
-        // 2.5 ==> 2 and 1/2
         const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
 
         if(!dec) return count;
@@ -95,7 +95,7 @@ export const renderRecipe = recipe => {
                 ${recipe.ingredients.map(el => createIngredient(el)).join('')}
             </ul>
 
-            <button class="btn-small recipe__btn">
+            <button class="btn-small recipe__btn recipe__btn--add">
                 <svg class="search__icon">
                     <use href="img/icons.svg#icon-shopping-cart"></use>
                 </svg>
