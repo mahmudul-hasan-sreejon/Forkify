@@ -17,6 +17,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
 // - Liked object
 const state = {};
 
+
 ////////////////////////////// Search Controller //////////////////////////////
 
 const controlSearch = async () => {
@@ -144,13 +145,13 @@ elements.shopping.addEventListener('click', e => {
         // Delete from UI
         listView.deleteItem(id);
     }
-
     // Update item value
-    if(e.target.matches('.shopping__count-value')) {
+    else if(e.target.matches('.shopping__count-value')) {
         const val = parseFloat(e.target.value, 10);
         state.list.updateCount(id, val);
     }
 });
+
 
 // Handle recipe button clicks
 elements.recipe.addEventListener('click', e => {
