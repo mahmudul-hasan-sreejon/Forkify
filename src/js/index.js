@@ -133,7 +133,7 @@ const controlLike = () => {
         likesView.toggleLikeBtn(true);
 
         // Add like to UI list
-        console.log(state.likes);
+        likesView.renderLikeItem(newLike);
     }
     else {
         // Remove like from the state
@@ -143,7 +143,7 @@ const controlLike = () => {
         likesView.toggleLikeBtn(false);
 
         // Remove like from UI list
-        console.log(state.likes);
+        likesView.deleteLikeItem(id);
     }
 
     // Toggle the like menu
