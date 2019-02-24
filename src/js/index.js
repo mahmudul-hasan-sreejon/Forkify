@@ -116,6 +116,7 @@ const controlList = () => {
 ////////////////////////////// Likes Controller //////////////////////////////
 
 state.likes = new Likes();
+likesView.toggleLikeMenu(state.likes.getNumLikes());
 
 const controlLike = () => {
     // Create a new like if there is none
@@ -145,6 +146,8 @@ const controlLike = () => {
         console.log(state.likes);
     }
 
+    // Toggle the like menu
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
 
 
