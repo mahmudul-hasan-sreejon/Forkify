@@ -4,10 +4,12 @@
 import Search from './models/Search';
 import Recipe from './models/Recipe';
 import List from './models/List';
+import Likes from './models/Likes';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import * as listView from './views/listView';
 import { elements, renderLoader, clearLoader } from './views/base';
+import Likes from './models/Likes';
 
 
 // Global state of the app
@@ -49,30 +51,6 @@ const controlSearch = async () => {
         }
     }
 };
-
-// Event Listener for search form
-elements.searchForm.addEventListener('submit', e => {
-    e.preventDefault();
-
-    controlSearch();
-});
-
-// Event Listener for pagination button(s)
-elements.searchResPages.addEventListener('click', e => {
-    // Select the clicked button
-    const btn = e.target.closest('.btn-inline');
-
-    if(btn) {
-        // Clear result(s)
-        searchView.clearResults();
-
-        // Get the page no.
-        const goToPage = parseInt(btn.dataset.goto, 10);
-
-        // Render results of that page no.
-        searchView.renderResults(state.search.result, goToPage);
-    }
-});
 
 ////////////////////////////// Recipe Controller //////////////////////////////
 
@@ -133,6 +111,63 @@ const controlList = () => {
     });
 };
 
+////////////////////////////// Likes Controller //////////////////////////////
+
+const controlLike = () => {
+    // Create a new like if there is none
+    if(!state.likes) state.likes = new Likes();
+
+    const id = state.recipe.id;
+
+    // If user has liked or not the current recipe
+    if(!state.likes.isLiked(id)) {
+        // Add like to the state
+        const newLike = state.likes.addLike(id, state.recipe.title, state.recipe.author, state.recipe.img);
+
+        // Toggle the button
+
+        // Add like to UI list
+        console.log(state.likes);
+    }
+    else {
+        // Remove like from the state
+        state.likes.deleteLike(id);
+
+        // Toggle the button
+
+        // Remove like from UI list
+        console.log(state.likes);
+    }
+
+};
+
+
+////////////////////////////// Event Handlers //////////////////////////////
+
+// Event Listener for search form
+elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    controlSearch();
+});
+
+// Event Listener for pagination button(s)
+elements.searchResPages.addEventListener('click', e => {
+    // Select the clicked button
+    const btn = e.target.closest('.btn-inline');
+
+    if(btn) {
+        // Clear result(s)
+        searchView.clearResults();
+
+        // Get the page no.
+        const goToPage = parseInt(btn.dataset.goto, 10);
+
+        // Render results of that page no.
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
+
 // Handle delete and update list item events
 elements.shopping.addEventListener('click', e => {
     const id = e.target.closest('.shopping__item').dataset.itemid;
@@ -165,7 +200,12 @@ elements.recipe.addEventListener('click', e => {
     else if(e.target.matches('.btn-increase, .btn-increase *')) {
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
-    } else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')) {
+    }
+    else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')) {
+        // Add ingredients to shopping list
         controlList();
+    }
+    else if(e.target.matches('.recipe__love, .recipe__love *')) {
+        controlLike();
     }
 });
