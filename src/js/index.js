@@ -115,9 +115,6 @@ const controlList = () => {
 
 ////////////////////////////// Likes Controller //////////////////////////////
 
-state.likes = new Likes();
-likesView.toggleLikeMenu(state.likes.getNumLikes());
-
 const controlLike = () => {
     // Create a new like if there is none
     if(!state.likes) state.likes = new Likes();
@@ -177,6 +174,7 @@ elements.searchResPages.addEventListener('click', e => {
     }
 });
 
+
 // Handle delete and update list item events
 elements.shopping.addEventListener('click', e => {
     const id = e.target.closest('.shopping__item').dataset.itemid;
@@ -194,6 +192,21 @@ elements.shopping.addEventListener('click', e => {
         const val = parseFloat(e.target.value, 10);
         state.list.updateCount(id, val);
     }
+});
+
+
+// Restore liked recipes on page load
+window.addEventListener('load', () => {
+    state.likes = new Likes();
+
+    // Restore likes
+    state.likes.readStorage();
+
+    // Toggle like menu button
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+    // Render the existing likes
+    state.likes.likes.forEach(like => likesView.renderLikeItem(like));
 });
 
 

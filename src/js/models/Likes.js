@@ -15,6 +15,10 @@ export default class Likes {
 
         // Add new like item
         this.likes.push(like);
+
+        // Persist data
+        this.persistData();
+
         return like;
     }
 
@@ -25,6 +29,9 @@ export default class Likes {
 
         // Delete like
         this.likes.splice(index, 1);
+
+        // Persist data
+        this.persistData();
     }
 
     // Find whether a recipe is liked or not
@@ -35,5 +42,18 @@ export default class Likes {
     // Number of likes
     getNumLikes() {
         return this.likes.length;
+    }
+
+    // Persist data in localStorage
+    persistData() {
+        localStorage.setItem('likes', JSON.stringify(this.likes));
+    }
+
+    // Read localStorage data
+    readStorage() {
+        const storage = JSON.parse(localStorage.getItem('likes'));
+
+        // Restore likes form the localStorage
+        if(storage) this.likes = storage;
     }
 }
