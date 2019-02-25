@@ -391,6 +391,14 @@ body {
       height: 2.75rem;
       width: 2.75rem;
       fill: #fff; }
+
+  .recipe__delete {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .recipe__ingredients {
     padding: 4rem 5rem;
     font-size: 1.5rem;
