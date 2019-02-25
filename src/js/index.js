@@ -131,6 +131,7 @@ const controlLike = () => {
 
         // Add like to UI list
         likesView.renderLikeItem(newLike);
+        likesView.renderClearListBtn();
     }
     else {
         // Remove like from the state
@@ -207,6 +208,7 @@ window.addEventListener('load', () => {
 
     // Render the existing likes
     state.likes.likes.forEach(like => likesView.renderLikeItem(like));
+    if(state.likes.getNumLikes()) likesView.renderClearListBtn();
 });
 
 

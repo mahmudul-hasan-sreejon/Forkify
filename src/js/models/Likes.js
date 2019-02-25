@@ -56,4 +56,9 @@ export default class Likes {
         // Restore likes form the localStorage
         if(storage) this.likes = storage;
     }
+
+    removeAllLikeItems() {
+        this.likes = [];
+        localStorage.clear();
+    }
 }

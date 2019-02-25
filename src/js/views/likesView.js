@@ -16,6 +16,22 @@ export const toggleLikeMenu = numLikes => {
     elements.likesMenu.style.visibility = (numLikes > 0) ? 'visible' : 'hidden';
 };
 
+export const renderClearListBtn = () => {
+    const markup = `
+        <li class="recipe__delete">
+            <button class="btn">
+                <svg>
+                    <use href="img/icons.svg#icon-circle-with-cross"></use>
+                </svg>
+                <span>Clear List</span>
+            </button>
+        </li>
+    `;
+
+    // Insert like item
+    elements.likesList.insertAdjacentHTML('beforeend', markup);
+}
+
 // Render like menu item
 export const renderLikeItem = like => {
     const markup = `
@@ -29,15 +45,6 @@ export const renderLikeItem = like => {
                     <p class="likes__author">${like.author}</p>
                 </div>
             </a>
-        </li>
-
-        <li class="recipe__delete">
-            <button class="btn">
-                <svg>
-                    <use href="img/icons.svg#icon-circle-with-cross"></use>
-                </svg>
-                <span>Clear List</span>
-            </button>
         </li>
     `;
 
