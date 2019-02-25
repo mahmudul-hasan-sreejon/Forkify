@@ -30,6 +30,15 @@ export const renderLikeItem = like => {
                 </div>
             </a>
         </li>
+
+        <li class="recipe__delete">
+            <button class="btn">
+                <svg>
+                    <use href="img/icons.svg#icon-circle-with-cross"></use>
+                </svg>
+                <span>Clear List</span>
+            </button>
+        </li>
     `;
 
     // Insert like item
