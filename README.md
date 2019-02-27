@@ -1,13 +1,20 @@
 # Forkify
 
-Recipe web application for kitchen hobbyists and beginner cooks. Search through thousands of recipes for cooking instructions and ingredients. Save your favorite recipes.
+Recipe web application for kitchen hobbyists and beginner cooks. Search through thousands of recipes for cooking instructions and ingredients; save your favorite recipes via local storage.
 
-## Technologies Used
+This app uses modern JavaScript tools, such as `Webpack` to bundle the modules, and `Babel` to convert `ES6`, `ES7` and `ES8` back to `ES5`, and several npm modules to function the app properly. It uses a simple `Express` server in order to run in `Heroku`.
 
+This app can be found [here](https://forkify-mhs.herokuapp.com/).
+
+## Technologies & Tools Used
+
+* [food2fork API](https://www.food2fork.com/)
+* [axios](https://www.npmjs.com/package/axios)
+* [fractional](https://www.npmjs.com/package/fractional)
+* [uniqid](https://www.npmjs.com/package/uniqid)
+* [express](https://www.npmjs.com/package/express)
 * [Webpack](https://webpack.js.org/)
 * [Babel](https://babeljs.io/)
-* [Axios Js](https://www.npmjs.com/package/axios)
-* [food2fork API](https://www.food2fork.com/)
 
 ## Author
 
