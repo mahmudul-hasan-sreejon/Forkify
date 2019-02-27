@@ -44,6 +44,16 @@ export default class Likes {
         return this.likes.length;
     }
 
+    // Remove all liked menu items
+    removeAllLikeItems() {
+        // Delete all likes
+        this.likes.splice(0, this.getNumLikes());
+
+        // Persist data
+        this.persistData();
+    }
+
+
     // Persist data in localStorage
     persistData() {
         localStorage.setItem('likes', JSON.stringify(this.likes));
@@ -55,10 +65,5 @@ export default class Likes {
 
         // Restore likes form the localStorage
         if(storage) this.likes = storage;
-    }
-
-    removeAllLikeItems() {
-        this.likes = [];
-        localStorage.clear();
     }
 }

@@ -92,12 +92,6 @@ const controlRecipe = async () => {
     }
 };
 
-// Track the recipe id on hash change
-window.addEventListener('hashchange', controlRecipe);
-
-// Track the recipe id on load
-window.addEventListener('load', controlRecipe);
-
 ////////////////////////////// List Controller //////////////////////////////
 
 const controlList = () => {
@@ -131,7 +125,6 @@ const controlLike = () => {
 
         // Add like to UI list
         likesView.renderLikeItem(newLike);
-        likesView.renderClearListBtn();
     }
     else {
         // Remove like from the state
@@ -151,12 +144,20 @@ const controlLike = () => {
 
 ////////////////////////////// Event Handlers //////////////////////////////
 
+// Track the recipe id on hash change
+window.addEventListener('hashchange', controlRecipe);
+
+// Track the recipe id on load
+window.addEventListener('load', controlRecipe);
+
+
 // Event Listener for search form
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
 
     controlSearch();
 });
+
 
 // Event Listener for pagination button(s)
 elements.searchResPages.addEventListener('click', e => {
@@ -208,7 +209,6 @@ window.addEventListener('load', () => {
 
     // Render the existing likes
     state.likes.likes.forEach(like => likesView.renderLikeItem(like));
-    if(state.likes.getNumLikes()) likesView.renderClearListBtn();
 });
 
 
@@ -231,5 +231,23 @@ elements.recipe.addEventListener('click', e => {
     }
     else if(e.target.matches('.recipe__love, .recipe__love *')) {
         controlLike();
+    }
+});
+
+
+// Handle like item clear button
+elements.likesList.addEventListener('click', e => {
+    if(e.target.matches('.recipe__delete, .recipe__delete *')) {
+        // Hide likes list from the UI
+        likesView.toggleLikeMenu(0);
+        
+        // Remove all like items from UI
+        state.likes.likes.forEach(el => likesView.deleteLikeItem(el.id));
+
+        // Clear likes data
+        state.likes.removeAllLikeItems();
+
+        // Toggle the recipe like button
+        likesView.toggleLikeBtn(false);
     }
 });
