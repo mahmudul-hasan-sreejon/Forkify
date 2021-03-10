@@ -1,6 +1,5 @@
 
 import axios from 'axios';
-import { key } from '../config';
 
 
 export default class Recipe {
@@ -11,7 +10,7 @@ export default class Recipe {
     // Fetch data for the given id
     async getRecipe() {
         try {
-            const res = await axios(`https://www.food2fork.com/api/get?key=${key}&rId=${this.id}`);
+            const res = await axios(`https://recipesapi.herokuapp.com/api/get?rId=${this.id}`);
 
             // Store response data
             this.title = res.data.recipe.title;
