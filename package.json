@@ -1,6 +1,6 @@
 {
   "name": "forkify",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "web app based on food2fork api",
   "main": "index.js",
   "scripts": {
@@ -11,14 +11,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mahmudul-hasan-sreejon/Forkify.git"
+    "url": "git+https://github.com/mahmudul-hasan-sreejon/forkify.git"
   },
   "author": "Mahmudul Hasan Sreejon",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/mahmudul-hasan-sreejon/Forkify/issues"
+    "url": "https://github.com/mahmudul-hasan-sreejon/forkify/issues"
   },
-  "homepage": "https://github.com/mahmudul-hasan-sreejon/Forkify#readme",
+  "homepage": "https://github.com/mahmudul-hasan-sreejon/forkify#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "express": "^4.16.4",
+    "fractional": "^1.0.0",
+    "uniqid": "^5.0.3"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "7.1.4",
@@ -27,12 +34,5 @@
     "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"
-  },
-  "dependencies": {
-    "axios": "^0.18.0",
-    "babel-polyfill": "^6.26.0",
-    "express": "^4.16.4",
-    "fractional": "^1.0.0",
-    "uniqid": "^5.0.3"
   }
 }
