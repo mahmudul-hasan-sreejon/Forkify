@@ -8,7 +8,7 @@ This app can be found [here](https://forkify-mhs.herokuapp.com/).
 
 ## Technologies & Tools Used
 
-* [food2fork API](https://recipesapi.herokuapp.com/)
+* [food2fork API](https://forkify-api.herokuapp.com/)
 * [axios](https://www.npmjs.com/package/axios)
 * [fractional](https://www.npmjs.com/package/fractional)
 * [uniqid](https://www.npmjs.com/package/uniqid)

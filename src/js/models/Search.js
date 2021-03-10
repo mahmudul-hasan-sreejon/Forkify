@@ -10,7 +10,7 @@ export default class Search {
     // Fetch data using the food2fork API
     async getResults() {
         try {
-            const res = await axios(`https://recipesapi.herokuapp.com/api/search?q=${this.query}`);
+            const res = await axios(`https://forkify-api.herokuapp.com/api/search?&q=${this.query}`);
 
             this.result = res.data.recipes;
         }

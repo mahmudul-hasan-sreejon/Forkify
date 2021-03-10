@@ -10,7 +10,7 @@ export default class Recipe {
     // Fetch data for the given id
     async getRecipe() {
         try {
-            const res = await axios(`https://recipesapi.herokuapp.com/api/get?rId=${this.id}`);
+            const res = await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
 
             // Store response data
             this.title = res.data.recipe.title;
